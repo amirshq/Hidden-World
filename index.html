@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hidden World — Night Photography Under Ultraviolet Light</title>
+<meta name="description" content="Hidden World is a collaborative night photography project documenting the unseen life of nature at night, revealed under ultraviolet light.">
+<meta name="theme-color" content="#0A0E2A">
+
+<!-- Only external dependency: Google Fonts (Zilla Slab = serif fallback, Inter = sans fallback) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Zilla+Slab:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ICON SPRITE — inline SVG, referenced with <use href="#i-*"> -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-scorpion" viewBox="0 0 24 24">
+    <ellipse cx="12" cy="11.6" rx="2.5" ry="3.4"/>
+    <path d="M9.6 9.6 6.3 8.2 4.4 5.7M14.4 9.6l3.3-1.4 1.9-2.5"/>
+    <path d="M4.4 5.7a1.7 1.7 0 1 0 2.3 2.4M19.6 5.7a1.7 1.7 0 1 1-2.3 2.4"/>
+    <path d="M9.6 11.4H6.4M14.4 11.4h3.2M9.8 13.8H7.3M14.2 13.8h2.5"/>
+    <path d="M12 15c.2 3 1.7 4.6 3.7 4.6s3.4-1.5 3.4-3.3c0-1.3-1-2.2-2.1-1.8"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24">
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/>
+    <path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/>
+  </symbol>
+  <symbol id="i-mushroom" viewBox="0 0 24 24">
+    <path d="M3.5 11.5a8.5 8.5 0 0 1 17 0Z"/>
+    <path d="M9.8 11.5v4.7a2.2 2.2 0 0 0 4.4 0v-4.7"/>
+    <path d="M8.2 7.6h.01M12 6.2h.01M15.8 8.2h.01"/>
+  </symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24">
+    <path d="M6 3h12l4 6-10 12L2 9Z"/>
+    <path d="M2 9h20M12 21 8.4 9 12 3M12 21l3.6-12L12 3"/>
+  </symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24">
+    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24">
+    <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 1.9v.3h5.2v-.3c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3Z"/>
+    <path d="M9.4 18.4h5.2M10.6 21h2.8"/>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24">
+    <path d="M10.5 2.5 12.2 8l5.5 1.7-5.5 1.7-1.7 5.5-1.7-5.5L3.3 9.7 8.8 8Z"/>
+    <path d="M18 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/>
+  </symbol>
+  <symbol id="i-telescope" viewBox="0 0 24 24">
+    <path d="M3 21h18"/><path d="M4.5 21v-5.2a7.5 7.5 0 0 1 15 0V21"/>
+    <path d="M4.6 13.2h14.8"/><path d="M12 8.3V3.4"/><path d="M9.6 5.6 12 3.4l2.4 2.2"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24">
+    <path d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11Z"/>
+  </symbol>
+  <symbol id="i-star" viewBox="0 0 24 24">
+    <path d="m12 3 2.6 5.7 6.2.8-4.5 4.3 1.1 6.2L12 17l-5.4 3 1.1-6.2-4.5-4.3 6.2-.8Z"/>
+  </symbol>
+</svg>
+
+<header class="nav" id="top">
+  <div class="nav__inner container">
+    <a class="nav__brand" href="#top">
+      <svg class="icon nav__mark" aria-hidden="true"><use href="#i-moon"/></svg>
+      <span>Hidden World</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="#project">Project</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#founders">Founders</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================================ 1 · HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="stars" data-stars data-density=".9" aria-hidden="true"></div>
+
+    <div class="container hero__inner reveal">
+      <p class="eyebrow">A Collaborative Night Photography Project</p>
+      <h1 class="hero__title" id="hero-title">Hidden World</h1>
+      <p class="hero__sub">Discovering and photographing the unseen life of nature at night — revealed under ultraviolet light.</p>
+      <p class="hero__meta">365 nm / 395 nm ultraviolet · Iran + Canada</p>
+    </div>
+  </section>
+
+  <!-- ============================================ 2 · THE PROJECT ============ -->
+  <section class="section" id="project" aria-labelledby="project-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">The Project</p>
+        <h2 id="project-title">What is Hidden World, and why?</h2>
+      </header>
+
+      <div class="grid grid--2">
+        <article class="card reveal">
+          <span class="badge" aria-hidden="true"><svg class="icon"><use href="#i-eye"/></svg></span>
+          <h3>What it is</h3>
+          <p>A collaborative project to find, photograph, and responsibly document the hidden parts of nature at night — subjects that reveal unique characteristics under UV-A. The goal: document this unseen world artistically, with every subject kept in its natural environment.</p>
+        </article>
+        <article class="card card--violet reveal">
+          <span class="badge badge--violet" aria-hidden="true"><svg class="icon"><use href="#i-bulb"/></svg></span>
+          <h3>Why the idea was formed</h3>
+          <p>It grew out of our background in astrophotography — capturing faint nebulae and hidden structures of the Milky Way the eye can’t see.</p>
+        </article>
+      </div>
+
+      <blockquote class="quote reveal">
+        <p>“What hidden beauties exist in the nature around us at night that we simply cannot see?”</p>
+        <footer>The founding question</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============================================ 3 · THE SUBJECTS ============ -->
+  <section class="section section--alt" id="subjects" aria-labelledby="subjects-title">
+    <div class="stars" data-stars data-density=".5" aria-hidden="true"></div>
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">The Subjects</p>
+        <h2 id="subjects-title">Four groups of natural subjects</h2>
+      </header>
+
+      <div class="grid grid--4">
+        <article class="card card--tight reveal">
+          <span class="badge badge--sm" aria-hidden="true"><svg class="icon"><use href="#i-scorpion"/></svg></span>
+          <h3>Animals</h3>
+          <p>Nocturnal creatures: scorpions, spiders, and the wider insect family.</p>
+        </article>
+        <article class="card card--tight reveal">
+          <span class="badge badge--sm" aria-hidden="true"><svg class="icon"><use href="#i-leaf"/></svg></span>
+          <h3>Plants &amp; lichens</h3>
+          <p>Some reveal striking fluorescent patterns and colors under UV.</p>
+        </article>
+        <article class="card card--tight card--violet reveal">
+          <span class="badge badge--sm badge--violet" aria-hidden="true"><svg class="icon"><use href="#i-mushroom"/></svg></span>
+          <h3>Fungi</h3>
+          <p>Mushrooms and other fungal forms found out in nature.</p>
+        </article>
+        <article class="card card--tight card--violet reveal">
+          <span class="badge badge--sm badge--violet" aria-hidden="true"><svg class="icon"><use href="#i-gem"/></svg></span>
+          <h3>Minerals &amp; crystals</h3>
+          <p>Beautiful fluorescence or phosphorescence; abundant across Iran.</p>
+        </article>
+      </div>
+
+      <p class="note-line reveal"><strong>In the wild, not the studio.</strong> Every subject is photographed in its natural habitat.</p>
+    </div>
+  </section>
+
+  <!-- ============================================ 4 · METHOD & SCIENCE ============ -->
+  <section class="section" id="method" aria-labelledby="method-title">
+    <div class="bloom bloom--glow section__bloom" aria-hidden="true"></div>
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Method &amp; Science</p>
+        <h2 id="method-title">How we work — and what makes it glow</h2>
+      </header>
+
+      <div class="grid grid--2">
+        <article class="card reveal">
+          <h3>How we do it</h3>
+          <p>Our main tool is UV-A light at 365 nm and 395 nm. We search, observe each subject’s reaction, photograph it, and record the details.</p>
+          <p class="label">We log for each discovery</p>
+          <p class="meta-list">Location &amp; date <span aria-hidden="true">·</span> Light source &amp; wavelength <span aria-hidden="true">·</span> Camera, lens &amp; EXIF <span aria-hidden="true">·</span> Type of light response</p>
+        </article>
+        <article class="card card--violet reveal">
+          <h3>What is fluorescence?</h3>
+          <p>A material absorbs ultraviolet energy and almost instantly re-emits it as visible light — usually in a different color.</p>
+          <p class="note">In the dark, a scorpion looks ordinary. Under UV-A, its body glows a beautiful blue-green.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 5 · WHY IT MATTERS ============ -->
+  <section class="section section--alt" id="vision" aria-labelledby="vision-title">
+    <div class="container vision">
+      <header class="section-head section-head--center reveal">
+        <p class="eyebrow">The Vision</p>
+        <h2 id="vision-title">Why it matters</h2>
+      </header>
+
+      <ul class="chips reveal">
+        <li class="chip">Natural subject</li>
+        <li class="chip-plus" aria-hidden="true">+</li>
+        <li class="chip">Real environment</li>
+        <li class="chip-plus" aria-hidden="true">+</li>
+        <li class="chip">Night darkness</li>
+        <li class="chip-plus" aria-hidden="true">+</li>
+        <li class="chip">Night sky</li>
+      </ul>
+
+      <p class="vision__line reveal">One story: a fluorescent scorpion photographed in the desert under the Milky Way — art, documentary, and science in a single frame that links Earth to the sky.</p>
+
+      <p class="vision__darksky reveal">
+        <span class="badge badge--sm" aria-hidden="true"><svg class="icon"><use href="#i-telescope"/></svg></span>
+        <span>Protecting the darkness isn’t only about seeing the stars — it means preserving the beauty, biodiversity, and hidden wonders of the nighttime world.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 6 · GALLERY ============ -->
+  <section class="section" id="gallery" aria-labelledby="gallery-title">
+    <div class="stars" data-stars data-density=".4" aria-hidden="true"></div>
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">From the Field</p>
+        <h2 id="gallery-title">Sample photographs</h2>
+      </header>
+
+      <div class="gallery">
+        <figure class="frame reveal">
+          <div class="frame__media">
+            <img src="assets/triptych.jpg" alt="Triptych of the same fluorescent minerals beneath the Milky Way: dull grey rocks in visible light, glowing blue under UV-A, and glowing green in afterglow." width="1200" height="1500" loading="lazy" decoding="async">
+          </div>
+          <figcaption>One subject, three lights — visible, UV-A, and afterglow, beneath the Milky Way.</figcaption>
+        </figure>
+
+        <figure class="frame frame--violet reveal">
+          <div class="frame__media">
+            <img src="assets/gecko.jpg" alt="A gecko on dark desert sand fluorescing brilliant blue under ultraviolet light." width="932" height="1400" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Gecko — fluorescing brilliant blue under UV-A.</figcaption>
+        </figure>
+
+        <figure class="frame reveal">
+          <div class="frame__media">
+            <img src="assets/scorpion.jpg" alt="A scorpion on tree bark glowing vivid green under ultraviolet light." width="1600" height="452" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Scorpion — vivid green cuticle fluorescence under UV-A.</figcaption>
+        </figure>
+
+        <figure class="frame frame--violet reveal">
+          <div class="frame__media">
+            <img src="assets/minerals.jpg" alt="A mound of crystals glowing bright orange on the open desert floor under a starry sky." width="1600" height="692" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Fluorescent minerals — crystals glowing orange in the open desert.</figcaption>
+        </figure>
+
+        <figure class="frame reveal">
+          <div class="frame__media">
+            <img src="assets/lichen.jpg" alt="Orange and white lichen fluorescing in patches across a bare rock face beneath stars." width="1600" height="727" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Lichens — orange &amp; white fluorescence mapping bare rock.</figcaption>
+        </figure>
+
+        <figure class="frame frame--violet reveal">
+          <div class="frame__media">
+            <img src="assets/field-bts.jpg" alt="A photographer kneeling beside a large outcrop glowing orange under ultraviolet light, with the Milky Way overhead." width="1143" height="1600" loading="lazy" decoding="async">
+          </div>
+          <figcaption>In the field — documenting a glowing outcrop under the stars.</figcaption>
+        </figure>
+
+        <figure class="frame reveal">
+          <div class="frame__media">
+            <img src="assets/field-landscape.jpg" alt="Desert floor strewn with rocks glowing orange under ultraviolet light, beneath a sky full of stars." width="1310" height="980" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Fluorescent minerals scatter the desert floor beneath a starlit sky.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 7 · FOUNDERS + ROAD AHEAD ============ -->
+  <section class="section section--alt" id="founders" aria-labelledby="founders-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">The Founders</p>
+        <h2 id="founders-title">Two astrophotographers, one hidden world</h2>
+      </header>
+
+      <div class="grid grid--2">
+        <article class="founder reveal">
+          <figure class="portrait">
+            <img src="assets/ali.jpg" alt="Portrait of Alimatin Far, founder of Hidden World." width="320" height="320" loading="lazy" decoding="async">
+          </figure>
+          <div>
+            <h3 class="founder__name">Alimatin Far</h3>
+            <p class="tag">Founder · Iran</p>
+            <p>Created Hidden World and leads its field documentation across Iran — deserts, nocturnal creatures, lichens, and fluorescent minerals.</p>
+            <p class="founder__next"><span class="tag tag--plain">Iran: underway</span> Field documentation has begun.</p>
+          </div>
+        </article>
+
+        <article class="founder reveal">
+          <figure class="portrait portrait--violet">
+            <img src="assets/amir.jpg" alt="Portrait of Amir, co-founder of Hidden World." width="320" height="320" loading="lazy" decoding="async">
+          </figure>
+          <div>
+            <h3 class="founder__name">Amir</h3>
+            <p class="tag tag--violet">Co-Founder · Canada</p>
+            <p>Joined to develop the project further and continues the search for new species, landscapes, and subjects across Canada’s ecosystems.</p>
+            <p class="founder__next"><span class="tag tag--plain">Canada: next</span> New species, landscapes and ecosystems.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="note-line reveal">Ali started Hidden World in Iran; Amir joined to carry it forward — bridging two countries under one night sky. Long-term: a collection connecting the hidden world of Iran and Canada with the beauty of the night sky.</p>
+    </div>
+  </section>
+
+  <!-- ============================================ 8 · CLOSING ============ -->
+  <section class="closing" aria-label="Project statement">
+    <div class="stars" data-stars data-density=".8" aria-hidden="true"></div>
+    <div class="container reveal">
+      <p class="closing__text">“We don’t only photograph the night sky — <strong>we capture the hidden world beneath it.</strong>”</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__brand">© Hidden World</p>
+    <ul class="footer__links">
+      <li><a href="#" aria-label="Hidden World on Instagram (link coming soon)">Instagram</a></li>
+      <li><a href="mailto:hello@hiddenworld.example">hello@hiddenworld.example</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
