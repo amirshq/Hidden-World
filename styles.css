@@ -178,6 +178,7 @@ a:hover{color:var(--white)}
 /* Shared text bits */
 .section-head{max-width:50ch;margin-bottom:clamp(1.4rem,3vw,2rem)}
 .section-head--center{margin-inline:auto;text-align:center}
+.section-sub{font-size:var(--step-1);margin:.5rem 0 0;opacity:.85}
 .tag{
   display:inline-block;font-size:var(--step-1);font-weight:600;
   text-transform:uppercase;letter-spacing:.12em;color:var(--glow);margin:0 0 .5rem;

@@ -42,4 +42,4 @@ Headings use Century Schoolbook (Zilla Slab fallback); body uses Calibri (Inter 
 
 ## Credits
 
-Photography by Ali MatinFar (Iran) and Amir (Canada).
+Photography by Ali Matinfar (Iran) and Amir Shahcheraghian (Canada).
