@@ -176,8 +176,7 @@ a:hover{color:var(--white)}
 .card--tight p{color:var(--mute);font-size:var(--step-1);line-height:1.55}
 
 /* Shared text bits */
-.section-head{max-width:50ch;margin-bottom:clamp(1.4rem,3vw,2rem)}
-.section-head--center{margin-inline:auto;text-align:center}
+.section-head{max-width:50ch;margin-inline:auto;text-align:center;margin-bottom:clamp(1.4rem,3vw,2rem)}
 .section-sub{font-size:var(--step-1);margin:.5rem 0 0;opacity:.85}
 .tag{
   display:inline-block;font-size:var(--step-1);font-weight:600;
@@ -191,8 +190,8 @@ a:hover{color:var(--white)}
 .meta-list span{color:var(--glow);padding:0 .15em}
 .note{border-left:2px solid var(--violet);padding-left:.9rem;color:var(--ice);margin-top:.9rem}
 .note-line{
-  margin-top:clamp(1.1rem,2.5vw,1.6rem);color:var(--mute);
-  font-size:var(--step-1);max-width:80ch;
+  margin:clamp(1.1rem,2.5vw,1.6rem) auto 0;color:var(--mute);
+  font-size:var(--step-1);max-width:80ch;text-align:center;
 }
 .note-line strong{color:var(--white)}
 
@@ -222,8 +221,7 @@ a:hover{color:var(--white)}
 
 /* 2 · Project */
 .quote{
-  margin:var(--gap) 0 0;padding:.15rem 0 .15rem 1.1rem;
-  border-left:2px solid var(--glow);
+  margin:calc(var(--gap) * 1.5) auto 0;max-width:60ch;text-align:center;
 }
 .quote p{font-family:var(--font-head);font-size:var(--step1);color:var(--white);margin-bottom:.25rem}
 .quote footer{color:var(--glow);font-size:var(--step-1);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
