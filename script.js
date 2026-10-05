@@ -131,4 +131,59 @@
     if (img.complete && img.naturalWidth === 0) flag();
     img.addEventListener('error', flag);
   });
+
+  /* ---------------------------------------------------------- 6. LIGHTBOX
+     Click (or Enter/Space) on a gallery photo opens it full size in a native
+     <dialog>. Esc, the close button or a click outside the photo closes it;
+     arrow keys step through the gallery.                                     */
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.gallery .frame'));
+  if (frames.length && window.HTMLDialogElement) {
+    var box = document.createElement('dialog');
+    box.className = 'lightbox';
+    box.setAttribute('aria-label', 'Enlarged photo');
+    box.innerHTML =
+      '<button class="lightbox__btn lightbox__close" type="button" aria-label="Close">&times;</button>' +
+      '<button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous photo">&#8249;</button>' +
+      '<button class="lightbox__btn lightbox__next" type="button" aria-label="Next photo">&#8250;</button>' +
+      '<figure class="lightbox__fig"><img class="lightbox__img" alt=""><figcaption class="lightbox__cap"></figcaption></figure>';
+    document.body.appendChild(box);
+
+    var bigImg = box.querySelector('.lightbox__img');
+    var bigCap = box.querySelector('.lightbox__cap');
+    var current = 0;
+
+    var show = function (i) {
+      current = (i + frames.length) % frames.length;
+      var img = frames[current].querySelector('img');
+      var cap = frames[current].querySelector('figcaption');
+      bigImg.src = img.currentSrc || img.src;
+      bigImg.alt = img.alt;
+      bigCap.textContent = cap ? cap.textContent : '';
+    };
+
+    frames.forEach(function (frame, i) {
+      var media = frame.querySelector('.frame__media');
+      media.setAttribute('role', 'button');
+      media.setAttribute('tabindex', '0');
+      media.setAttribute('aria-label', 'Enlarge photo');
+      media.addEventListener('click', function () { show(i); box.showModal(); });
+      media.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); box.showModal(); }
+      });
+    });
+
+    box.querySelector('.lightbox__close').addEventListener('click', function () { box.close(); });
+    box.querySelector('.lightbox__prev').addEventListener('click', function () { show(current - 1); });
+    box.querySelector('.lightbox__next').addEventListener('click', function () { show(current + 1); });
+    // A click on the backdrop (the dialog itself, not its contents) closes it.
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    box.addEventListener('close', function () {
+      var media = frames[current].querySelector('.frame__media');
+      if (media) media.focus({ preventScroll: true });
+    });
+  }
 })();
