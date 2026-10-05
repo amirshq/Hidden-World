@@ -244,15 +244,16 @@ a:hover{color:var(--white)}
   color:var(--glow);line-height:1.55;
 }
 
-/* 6 · Gallery, rows of 3. Each photo's width is proportional to its aspect
-   ratio (--ar), so every photo in a row has the same height and nothing is
-   cropped: tops and bottoms line up. Phones get a single column. */
-.gallery{display:flex;flex-direction:column;gap:calc(var(--gap) * 1.4)}
-.gallery__row{display:flex;flex-direction:column;gap:calc(var(--gap) * 1.4)}
-@media (min-width:640px){
-  .gallery__row{flex-direction:row;align-items:flex-start;gap:var(--gap)}
-  .gallery__row .frame{flex:var(--ar) 1 0;min-width:0}
-}
+/* 6 · Gallery, a strict 3-column grid: equal cells, equal gaps, so rows and
+   columns line up. Each photo sits whole inside its cell (object-fit:contain,
+   never cropped); a photo whose shape differs slightly from the cell gets thin
+   navy bars instead. First row (square comparisons) uses square cells. */
+.gallery{display:grid;grid-template-columns:1fr;gap:var(--gap)}
+.gallery .frame__media{aspect-ratio:3/4;background:#05071a}
+.gallery .frame--square .frame__media{aspect-ratio:1}
+.gallery .frame__media img{width:100%;height:100%;object-fit:contain}
+.gallery figcaption{margin-top:.55rem}
+@media (min-width:640px){.gallery{grid-template-columns:repeat(3,1fr);row-gap:calc(var(--gap) * 1.6)}}
 .gallery .frame__media{cursor:zoom-in}
 
 /* Lightbox, enlarged gallery photo */
