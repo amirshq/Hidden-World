@@ -1,13 +1,13 @@
 # Hidden World
 
-Single-page marketing site for **Hidden World** — a collaborative night-photography project
+Single-page marketing site for **Hidden World**, a collaborative night-photography project
 documenting the unseen life of nature at night, revealed under ultraviolet light (365 nm / 395 nm).
 
-> "We don't only photograph the night sky — we capture the hidden world beneath it."
+> "We don't only photograph the night sky, we capture the hidden world beneath it."
 
 ## Stack
 
-Plain static site — no framework, no build step. Open `index.html` directly, or serve the folder:
+Plain static site, no framework, no build step. Open `index.html` directly, or serve the folder:
 
 ```bash
 python3 -m http.server 8777

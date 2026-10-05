@@ -1,8 +1,8 @@
 /* ============================================================================
-   HIDDEN WORLD — night + UV fluorescence theme
+   HIDDEN WORLD , night + UV fluorescence theme
    1. Tokens   2. Base   3. Layout   4. Components   5. Sections   6. Motion
    Restraint rules: solid navy everywhere, one accent per block, glow used as
-   a hairline or a faint halo — never as a surface.
+   a hairline or a faint halo , never as a surface.
    ========================================================================== */
 
 /* ---------------------------------------------------------------- 1. TOKENS */
@@ -10,7 +10,7 @@
   --navy:#0A0E2A;
   --navy2:#141A3D;
   --card:#1B2350;
-  --glow:#2AF5C0;        /* fluorescent cyan-green — primary accent */
+  --glow:#2AF5C0;        /* fluorescent cyan-green , primary accent */
   --violet:#8B6FE8;      /* UV accent */
   --violet-text:#A08AF0; /* same hue, lifted for AA contrast on text */
   --ice:#CFE0FF;
@@ -21,7 +21,7 @@
   --font-head:"Century Schoolbook","Zilla Slab",Georgia,serif;
   --font-body:"Calibri","Inter",system-ui,-apple-system,sans-serif;
 
-  /* Fluid scale — deliberately tighter than the deck */
+  /* Fluid scale , deliberately tighter than the deck */
   --step-1:clamp(.72rem,.7rem + .12vw,.8rem);
   --step0:clamp(.95rem,.93rem + .12vw,1.02rem);
   --step1:clamp(1.05rem,1rem + .3vw,1.2rem);
@@ -92,13 +92,13 @@ a:hover{color:var(--white)}
 
 /* ------------------------------------------------------------ 4. COMPONENTS */
 
-/* Star field — dots injected by script.js, static and sparse */
+/* Star field , dots injected by script.js, static and sparse */
 .stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:var(--ice)}
 .star--glow{background:var(--glow)}
 .star--white{background:var(--white)}
 
-/* Glow blooms — ambient only, kept faint */
+/* Glow blooms , ambient only, kept faint */
 .bloom{
   position:absolute;z-index:0;pointer-events:none;
   width:min(70vw,620px);aspect-ratio:1;border-radius:50%;
@@ -107,7 +107,7 @@ a:hover{color:var(--white)}
 .bloom--glow{background:radial-gradient(circle,rgba(42,245,192,.1),rgba(42,245,192,0) 70%)}
 .section__bloom{top:-20%;right:-24%}
 
-/* Glowing icon badge — disc, two faint halos, 1px accent ring */
+/* Glowing icon badge , disc, two faint halos, 1px accent ring */
 .badge{
   --accent:var(--glow);--accent-rgb:42,245,192;
   position:relative;display:inline-grid;place-items:center;flex:none;
@@ -123,7 +123,7 @@ a:hover{color:var(--white)}
 .badge--sm{width:2.1rem;height:2.1rem}
 .badge--violet{--accent:var(--violet);--accent-rgb:139,111,232}
 
-/* Glowing circular portrait — 2.5px accent ring + one soft halo ring */
+/* Glowing circular portrait , 2.5px accent ring + one soft halo ring */
 .portrait{
   --accent:var(--glow);--accent-rgb:42,245,192;
   position:relative;margin:0;flex:none;
@@ -138,7 +138,7 @@ a:hover{color:var(--white)}
 .portrait img{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;object-fit:cover}
 .portrait--violet{--accent:var(--violet);--accent-rgb:139,111,232}
 
-/* Framed photo — 1.25px accent outline, straight corners */
+/* Framed photo , 1.25px accent outline, straight corners */
 .frame{--accent-rgb:42,245,192;margin:0}
 .frame--violet{--accent-rgb:139,111,232}
 .frame__media{
@@ -159,7 +159,7 @@ a:hover{color:var(--white)}
   text-transform:uppercase;letter-spacing:.16em;margin:0 0 .45rem;
 }
 
-/* Cards — flat fill, hairline accent border */
+/* Cards , flat fill, hairline accent border */
 .card{
   --accent-rgb:42,245,192;
   background:var(--navy2);
@@ -207,7 +207,7 @@ a:hover{color:var(--white)}
 .nav__links a{color:var(--mute);text-transform:uppercase;font-weight:600}
 .nav__links a:hover{color:var(--glow)}
 
-/* 1 · Hero — compact title block, not a full screen */
+/* 1 · Hero , compact title block, not a full screen */
 .hero{
   position:relative;isolation:isolate;
   padding-block:clamp(3.5rem,11vw,6rem) clamp(2.5rem,7vw,4rem);
@@ -244,13 +244,12 @@ a:hover{color:var(--white)}
   color:var(--glow);line-height:1.55;
 }
 
-/* 6 · Gallery — masonry columns, so nothing is cropped */
-.gallery{columns:1;column-gap:var(--gap)}
-.gallery .frame{break-inside:avoid;margin-bottom:var(--gap)}
-@media (min-width:640px){.gallery{columns:2}}
-@media (min-width:980px){.gallery{columns:3}}
+/* 6 · Gallery, 3 per row; images keep their full shape (never cropped) */
+.gallery{display:grid;grid-template-columns:1fr;gap:calc(var(--gap) * 1.4) var(--gap);align-items:start}
+@media (min-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}}
 
-/* 7 · Founders — compact media rows */
+/* 7 · Founders , compact media rows */
 .founder{display:flex;gap:clamp(.9rem,2.5vw,1.25rem);align-items:flex-start}
 .founder__name{margin-bottom:.25rem}
 .founder p{color:var(--mute);font-size:var(--step-1);line-height:1.55}

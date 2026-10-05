@@ -1,5 +1,5 @@
 /* ============================================================================
-   HIDDEN WORLD — progressive enhancement only.
+   HIDDEN WORLD, progressive enhancement only.
    Nothing here is required to read the page: with JS off, every section is
    visible, only the star field and scroll-reveal are absent.
    ========================================================================== */
@@ -14,7 +14,7 @@
   /* ------------------------------------------------------------------ 1. STARS
      Small absolutely-positioned dots: mostly white/--ice, ~1 in 5 in --glow,
      varied size + low opacity, concentrated near the top of each section.
-     Static — no twinkle, the page reads as a document, not a screensaver.     */
+     Static, no twinkle, the page reads as a document, not a screensaver.     */
   var starLayers = Array.prototype.slice.call(document.querySelectorAll('[data-stars]'));
 
   function buildStars(layer) {
